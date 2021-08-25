@@ -26,7 +26,7 @@ public class BinarySearchImpl<T extends Comparable<T>> implements Search<T> {
         return min + (max - min) / 2;
     }
 
-    public int search(T[] a, T key, int min, int max) {
+    public int search(T[] a, T searchTerm, int min, int max) {
         if (a == null || a.length == 0) {
             return -1;
         }
@@ -36,10 +36,10 @@ public class BinarySearchImpl<T extends Comparable<T>> implements Search<T> {
             return -1;
         }
 
-        if (a[mid].compareTo(key) > 0) {
-            return search(a, key, min, mid - 1);
-        } else if (a[mid].compareTo(key) < 0) {
-            return search(a, key, mid + 1, max);
+        if (a[mid].compareTo(searchTerm) > 0) {
+            return search(a, searchTerm, min, mid - 1);
+        } else if (a[mid].compareTo(searchTerm) < 0) {
+            return search(a, searchTerm, mid + 1, max);
         } else {
             return mid;
         }
